@@ -13,33 +13,33 @@
             display: flex;
             justify-content: space-between;
             align-items:center;
-            background-color: #263238;
+            background-color: rgb(38, 50, 56);
             padding: 10px 20px;
-           
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             height: 30px;
-          
             float: right;
         }
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom:5px;
+        .button-header{
+            background-color: rgb(38, 50, 56);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 30px;
+            height: 30px;
             color: #fff;
-           
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .search-container{
-       
-            position: relative;
-            margin: 10px ;
-            margin-right: -200px;
-            
+        .button-header:hover{
+            box-shadow: 1px 1px 0px rgb(192, 233, 203 , 0.6);
         }
-        .search-container input{
+         .search-input{
+            display: block;
             width: 300px;
             font-size: 12px;
             padding: 6px;
@@ -49,50 +49,37 @@
             background-color: #48606C;
            
         }
-        .search-container ::placeholder{
+        @media (max-width: 1024px) {
+            .search-input {
+                width: 250px; /* Réduit un peu la largeur */
+            }
+        }
+        .search-input::placeholder{
             color: #fff;
         }
-        .search-container input:focus{
+        .search-input input:focus{
             width: 400px;
         }
-        .search-container i{
-           position: absolute;
-            top: 50%;  /* Positionne l icône au milieu verticalement du champ de recherche*/
-
-            right: 20px;
-            color: #fff;
-            transform: translateY(-50%); /* Décale l’icône vers le haut de 50% de sa propre hauteur pour qu’elle soit parfaitement centrée verticalement*/
-
-            cursor: pointer;
-    
+        .header-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 40px;
         }
-            .header-icon {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-right: 40px;
-            }
-            .notification-icon i{
-                width: 30px;
-                height: 30px;
-               color: #fff;
-               
-                display: flex;
-                align-items: center;
-                justify-content: center;
-               
-                cursor: pointer;
-            }
-            .user-icon {
-                width: 30px;
-                height: 30px;
-                background-color: #e1095f;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: bold;
-            } /* end header */
+        .user-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #e1095f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border:none;
+            cursor: pointer;
+        } /* end header */
+
+
         .container {
             display: flex;
             flex: 1;
@@ -105,6 +92,11 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
+            /*fixe side bar :hanan*/
+            position: fixed; /* Fixe la sidebar */
+            height: 100vh; /* S'assure qu'elle prend toute la hauteur de l'écran */
+            left: 0; /* L'aligne sur le côté gauche */
+            top: 50px; /* La fixe en haut */
 
         }
       
@@ -163,6 +155,8 @@
             padding: 50px;
             background-color: #f4f4f4;
             
+            margin-left: 200px;/*pour n'etre pas au dessus du side bar car elle est fixé :hanan
+            
         }
     
   
@@ -199,4 +193,3 @@
             background-color: #1D83CC;
             color: white;
             }
-       
