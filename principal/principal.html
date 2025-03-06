@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
-   ">
-
-    <title>ManGo Website</title>
-    <link rel="stylesheet" href="style.css">
-
+    <!-- css icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <!-- css normelize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- css style  -->
+    <link rel="stylesheet" href="./css/principal.css">
+    <!-- font style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>ManGo</title>
 </head>
-<body>
-    <header>
 
+<body>
+    <!-- chouaib : div containe un class place d'un header pour simplifier travaille dans js -->
+    <div class="header">
         <div class="header-icon">
             <h2 style="color: aliceblue;
             font-size: 20px; 
             display: inline-block;
             margin-right: 60px;
             ">ManGo</h2>
-             <button class="button-header"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="button-header"><i class="fa-solid fa-arrow-left"></i></button>
             <button class="button-header"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        
         <div class="header-icon">
             <button class="button-header"><i class="fa-solid fa-clock-rotate-left"></i></button>
             <div class="search-container">
-            <input type="text" placeholder="Search..." >
-            <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search...">
+                <i class="fa fa-search"></i>
+            </div>
         </div>
-    </div>
-       
+
         <div class="header-icon">
             <button class="button-header"><i class="fa-regular fa-clipboard"></i></button>
             <button class="button-header"><i class="fa-solid fa-calendar-days"></i></button>
@@ -39,10 +48,9 @@
             <button class="button-header"><i class="fa-solid fa-bell"></i></button>
             <button class="user-icon">EB</button>
         </div>
-    </header>
+    </div>
     <div class="container">
         <div class="sidebar">
-           
             <div class="workspace">
                 <div class="icon">E</div>
                 <h2>Workspace</h2>
@@ -56,7 +64,7 @@
                 </ul>
             </nav>
         </div>
-        <main class="content">
+        <div class="content">
             <div class="board">
                 <h1>MyProject</h1>
                 <div class="board-project">
@@ -64,7 +72,8 @@
                     <div class="projet">Projet 1</div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 </body>
+
 </html>
