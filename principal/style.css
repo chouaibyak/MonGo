@@ -38,8 +38,14 @@
         .button-header:hover{
             box-shadow: 1px 1px 0px rgb(192, 233, 203 , 0.6);
         }
-         .search-input{
-            display: block;
+        .search-container{
+       
+            position: relative;
+            margin: 10px ;
+            margin-right: -200px;
+            
+        }
+        .search-container input{
             width: 300px;
             font-size: 12px;
             padding: 6px;
@@ -47,19 +53,31 @@
             border: none;
             box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
             background-color: #48606C;
+
            
-        }
+        }/*
         @media (max-width: 1024px) {
             .search-input {
                 width: 250px; /* Réduit un peu la largeur */
-            }
-        }
-        .search-input::placeholder{
+           
+       
+        .search-container  ::placeholder{
             color: #fff;
         }
-        .search-input input:focus{
+        .search-container input:focus{
             width: 400px;
         }
+
+        .search-container i{
+            position: absolute;
+             top: 50%;  /* Positionne l icône au milieu verticalement du champ de recherche*/
+ 
+             right: 20px;
+             color: #fff;
+             transform: translateY(-50%); /* Décale l’icône vers le haut de 50% de sa propre hauteur pour qu’elle soit parfaitement centrée verticalement*/
+ 
+             cursor: pointer;
+        } 
         .header-icon {
             display: flex;
             align-items: center;
@@ -155,7 +173,7 @@
             padding: 50px;
             background-color: #f4f4f4;
             
-            margin-left: 200px;/*pour n'etre pas au dessus du side bar car elle est fixé :hanan
+            margin-left: 200px;/*pour n'etre pas au dessus du side bar car elle est fixé :hanan*/
             
         }
     
