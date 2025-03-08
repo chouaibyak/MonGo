@@ -28,6 +28,18 @@ body {
     overflow-x: unset;
 }
 
+.header .header-icon .h2 {
+    color: aliceblue;
+    font-size: 23px;
+    display: inline-block;
+    margin-right: 58px;
+}
+
+.header .header-icon .head-logo {
+    color: #fff;
+    font-size: 31px;
+}
+
 .button-header {
     background-color: rgb(38, 50, 56);
     border: none;
@@ -49,7 +61,7 @@ body {
 
     position: relative;
     margin: 10px;
-    margin-right: -200px;
+    margin-right: 44px;
 
 }
 
@@ -93,8 +105,15 @@ body {
 .header-icon {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-right: 40px;
+    gap: 20px;
+    margin-right: 45px;
+}
+
+
+.header-icon .notif-icone {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .user-icon {
