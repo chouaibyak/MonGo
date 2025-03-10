@@ -124,7 +124,7 @@ body {
     /*fixe side bar :hanan*/
     position: fixed;
     /* Fixe la sidebar */
-    height: 100vh;
+    height: calc(100% - 50px);
     /* S'assure qu'elle prend toute la hauteur de l'écran */
     left: 0;
     /* L'aligne sur le côté gauche */
@@ -201,6 +201,8 @@ nav li:hover {
     display: flex;
     align-items: center;
     padding: 20px;
+    bottom: 0;
+    background-color: rgb(255, 255, 255); /* Ensures visibility */
 }
 
 /* end container */
@@ -211,9 +213,27 @@ nav li:hover {
 
 .board-project {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    gap: 25px; /* Espace entre les paires */
     /* lespace entre aj-proj et projet*/
+    padding-left: 20px;
+    top: 60px;
 }
+ .MyProject{
+    display: flex; /* Ensures it spans the full width */
+    align-items: center; /* Centers text vertically */
+    position: fixed;
+    top: 23px;
+    left: 240px;
+    right: 0; /* Ensures it stretches to the right */
+    width: calc(100% - 200px); /* Full width minus sidebar */
+    height: 60px; /* Fixed height */
+    padding-left: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #ffffff;
+    z-index: 1000; /* Ensures it stays above other elements */
+ }
 
 .ajouter-projet,
 .projet {
@@ -228,6 +248,9 @@ nav li:hover {
     cursor: pointer;
     border-radius: 5px;
 }
+.ajouter-projet:hover, .projet:hover {
+    transform: scale(1.05);
+  }
 
 /* modifier dans "+" pour devient plus grand */
 .ajouter-projet {
@@ -235,13 +258,7 @@ nav li:hover {
     font-weight: 300;
 }
 
-.projet:hover {
-    background-color: #11293f;
-}
 
-.ajouter-projet:hover {
-    background-color: #76929f;
-}
 
 .ajouter-projet {
     background-color: #AEC5D0;
