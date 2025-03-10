@@ -8,6 +8,7 @@ body {
 }
 
 
+
 /* end globel roles (chouaib) */
 
 /*  start header */
@@ -140,15 +141,11 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    /*fixe side bar :hanan*/
     position: fixed;
-    /* Fixe la sidebar */
     height: 100vh;
-    /* S'assure qu'elle prend toute la hauteur de l'écran */
     left: 0;
-    /* L'aligne sur le côté gauche */
     top: 50px;
-    /* La fixe en haut */
+    z-index: 1;
 
 }
 
@@ -271,8 +268,3 @@ nav li:hover {
     background-color: #1D83CC;
     color: white;
 }
-
-/* start media */
-@media (max-width: 900px) {}
-
-/* end media */
