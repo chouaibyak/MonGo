@@ -15,6 +15,8 @@ body {
 /*  start header */
 .header {
     display: flex;
+    grid-template-columns: 1fr 2fr 1fr;
+
     justify-content: space-between;
     align-items: center;
     background-color: rgb(38, 50, 56);
@@ -201,6 +203,7 @@ nav li:hover {
     display: flex;
     align-items: center;
     padding: 20px;
+    height: 2000px;
 }
 
 /* end container */
