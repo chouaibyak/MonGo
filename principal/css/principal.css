@@ -1,17 +1,18 @@
-/* start globel roles (chouaib) */
+/* Règles globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* font style */
 body {
     font-family: "Work Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    overflow-x: hidden;
 }
 
-
-
-/* end globel roles (chouaib) */
-
-/*  start header */
+/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -23,22 +24,26 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 30px;
-    float: right;
-    z-index: 1;
-    overflow-x: unset;
+    height: 50px;
+    z-index: 1000;
 }
 
-.header .header-icon .h2 {
-    color: aliceblue;
-    font-size: 23px;
-    display: inline-block;
-    margin-right: 58px;
+.header .header-icon {
+    display: flex;
+    align-items: center;
 }
 
 .header .header-icon .head-logo {
     color: #fff;
     font-size: 31px;
+    margin-right: 10px;
+}
+
+.header .header-icon h2 {
+    color: aliceblue;
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 60px;
 }
 
 .button-header {
@@ -52,90 +57,79 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 5px;
+    transition: all 0.3s ease;
 }
 
 .button-header:hover {
-    box-shadow: 1px 1px 0px rgb(192, 233, 203, 0.6);
+    box-shadow: 0 0 5px rgba(192, 233, 203, 0.6);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .search-container {
-
     position: relative;
-    margin: 10px;
-    margin-right: 44px;
-
+    margin: 0 20px;
 }
 
 .search-container input {
     width: 300px;
     font-size: 12px;
-    padding: 6px;
+    padding: 8px 30px 8px 15px;
     border-radius: 20px;
     border: none;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     background-color: #48606C;
-
-
+    color: #fff;
+    transition: width 0.3s ease;
 }
 
-/*
-        @media (max-width: 1024px) {
-            .search-input {
-                width: 250px; /* Réduit un peu la largeur */
-
-
-.search-container ::placeholder {
-    color: #fff;
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .search-container input:focus {
-    width: 400px;
+    width: 350px;
+    outline: none;
 }
 
 .search-container i {
     position: absolute;
     top: 50%;
-    /* Positionne l icône au milieu verticalement du champ de recherche*/
-    right: 20px;
+    right: 15px;
     color: #fff;
     transform: translateY(-50%);
-    /* Décale l’icône vers le haut de 50% de sa propre hauteur pour qu’elle soit parfaitement centrée verticalement*/
     cursor: pointer;
 }
 
 .header-icon {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-right: 45px;
-}
-
-
-.header-icon .notif-icone {
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
+    gap: 10px;
 }
 
 .user-icon {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     background-color: #e1095f;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    color: #fff;
     border: none;
     cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
 }
 
-/* end header */
+.user-icon:hover {
+    transform: scale(1.1);
+}
 
-
-/* start sidebar*/
+/* Sidebar */
 .sidebar {
-    width: 200px;
+    width: 240px;
     background-color: #7BA186;
     color: white;
     padding: 20px;
@@ -145,155 +139,276 @@ body {
     height: 100vh;
     left: 0;
     top: 50px;
-    z-index: 1;
-
+    z-index: 900;
 }
 
 .workspace {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     color: #112a13;
-
-
-
 }
-
 
 .workspace .icon {
     width: 40px;
     height: 40px;
     background-color: #C0E9CB;
-    border-radius: 60%;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     font-weight: bold;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin-top: 10px;
 }
 
 nav ul li {
     cursor: pointer;
-    margin-bottom: 37px;
-    margin-left: 29px;
-    font-size: 15px;
+    margin-bottom: 25px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li i {
-    margin-right: 13px;
-    font-size: 15px;
-
-
+    margin-right: 15px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
 }
 
 nav li:hover {
-    transition: 0.5s ease;
-    transform: translate(-15px);
-    padding: 20px;
-    border-radius: 100px;
-    background-color: #0000003d;
+    transform: translateX(-10px);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
 }
 
-/*end sidebar  */
-
-/* start container (place ou se fait tout les modif js {chouaib] */
+/* Container principal */
 .container {
-    background-color: #eee;
+    background-color: #f5f5f5;
     width: calc(100% - 240px);
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 50px;
+    padding-bottom: 20px;
 }
 
 .content {
-    display: flex;
-    align-items: center;
     padding: 20px;
-    bottom: 0;
-    background-color: rgb(255, 255, 255);
-    /* Ensures visibility */
 }
 
-/* end container */
-
+/* Projets */
 .board {
-    margin-top: 80px;
+    margin-top: 60px;
+}
+
+.MyProject {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    left: 240px;
+    right: 0;
+    width: calc(100% - 240px);
+    height: 60px;
+    padding-left: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    background-color: #ffffff;
+    z-index: 800;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .board-project {
     display: flex;
     flex-wrap: wrap;
-    /* Permet le retour à la ligne */
-    gap: 25px;
-    /* Espace entre les paires */
-    /* lespace entre aj-proj et projet*/
-    padding-left: 20px;
-    top: 60px;
-}
-
-.MyProject {
-    display: flex;
-    /* Ensures it spans the full width */
-    align-items: center;
-    /* Centers text vertically */
-    position: fixed;
-    top: 23px;
-    left: 240px;
-    right: 0;
-    /* Ensures it stretches to the right */
-    width: calc(100% - 200px);
-    /* Full width minus sidebar */
-    height: 60px;
-    /* Fixed height */
-    padding-left: 20px;
-    font-size: 40px;
-    font-weight: bold;
-    background-color: #ffffff;
-    z-index: 1000;
-    /* Ensures it stays above other elements */
+    gap: 30px;
+    padding: 30px;
+    margin-top: 60px;
 }
 
 .ajouter-projet,
 .projet {
-    margin-right: 15px;
-    width: 284px;
-    height: 149px;
+    width: 250px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    font-weight: 300;
+    font-size: 24px;
+    font-weight: 500;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ajouter-projet:hover,
 .projet:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
-
-/* modifier dans "+" pour devient plus grand */
-.ajouter-projet {
-    font-size: 184px;
-    font-weight: 300;
-}
-
-
 
 .ajouter-projet {
     background-color: #AEC5D0;
     color: #2d3e3f;
+    font-size: 50px;
 }
 
 .projet {
     background-color: #1D83CC;
     color: white;
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 1200px) {
+    .search-container input {
+        width: 200px;
+    }
+
+    .search-container input:focus {
+        width: 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-icon .head-logo+h2 {
+        display: none;
+    }
+
+    .icone1,
+    .icone2 {
+        display: none;
+    }
+
+    .search-container input {
+        width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Modifications pour le header mobile */
+    .header {
+        padding: 10px 15px;
+    }
+
+    /* Afficher uniquement le logo dans le premier bloc */
+    .header .header-icon:first-child .button-header {
+        display: none;
+    }
+
+    /* Cacher le bloc du milieu */
+    .header .header-icon:nth-child(2) .button-header {
+        display: none;
+    }
+
+    /* Conserver le logo, la recherche, les notifications et le profil */
+    .header .header-icon .head-logo,
+    .search-container,
+    .icone3,
+    .user-icon {
+        display: flex;
+    }
+
+    /* Ajuster la taille de la recherche pour mobile */
+    .search-container input {
+        width: 120px;
+    }
+
+    .search-container input:focus {
+        width: 150px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+
+    .workspace h2 {
+        display: none;
+    }
+
+    .workspace {
+        justify-content: center;
+    }
+
+    .workspace .icon {
+        margin-right: 0;
+    }
+
+    nav ul li span {
+        display: none;
+    }
+
+    nav ul li {
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    nav ul li i {
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .container,
+    .MyProject {
+        width: calc(100% - 70px);
+        left: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Réduire encore la taille du champ de recherche */
+    .search-container {
+        margin: 0 5px;
+    }
+
+    .search-container input {
+        width: 100px;
+        padding: 6px 25px 6px 10px;
+    }
+
+    .search-container input:focus {
+        width: 120px;
+    }
+
+    /* Ajuster les icônes pour économiser de l'espace */
+    .header-icon {
+        gap: 5px;
+    }
+
+    .button-header {
+        margin: 0 2px;
+    }
+
+    /* Ajuster les projets pour mobile */
+    .board-project {
+        justify-content: center;
+        padding: 20px 10px;
+    }
+
+    .ajouter-projet,
+    .projet {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Ajuster le titre */
+    .MyProject {
+        font-size: 28px;
+        padding-left: 15px;
+    }
 }
