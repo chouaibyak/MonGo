@@ -69,30 +69,84 @@
                 <h1 class="MyProject"><i>My Projects</i></h1>
                 <div class="board-project">
                     <div class="ajouter-projet">+</div>
-                    <div class="projet">Projet 1</div>
-                    
-                    <div class="ajouter-projet">+</div>
-                    <div class="projet">Projet 1</div>
-                    
-                    <div class="ajouter-projet">+</div>
-                    <div class="projet">Projet 1</div>
-                    
-                    <div class="ajouter-projet">+</div>
-                    <div class="projet">Projet 1</div>
-                    
-                    <div class="ajouter-projet">+</div>
-                    <div class="projet">Projet 1</div>
-                    
-                    <div class="ajouter-projet">+</div>
-                    <div class="projet">Projet 1</div>
-                    
-                    <div class="ajouter-projet">+</div>
-              
-
+                    <div class="projet" id="projet1">Projet 1</div>
                 </div>
             </div>
+
+
+
+
+            
+                <div id="task-board" class="Tasks">
+                    <div class="projetX-bar">
+                        <div class="nomProjet">
+                        <button id="back"><i class="fa-solid fa-arrow-left"></i></button>
+                        <h1><i>projet1</i></h1>
+                        <button>DashBord</button>
+                        </div>
+                        <div class="infoProjet">
+                        <button><i class="fa-solid fa-comments"></i></button>
+                        <button><i class="fa-solid fa-user-plus"></i></button>
+                        <button>membres</button>
+                        </div>
+                    </div>
+
+                    <div class="task-content">
+                        <div class="create-taches">
+                            <button id="add-task"><i class="fa-solid fa-plus"></i> Ajouter une tache</button>
+                            <div class="tache-info">
+                                <input type="text" placeholder="enter le nom du tache" class="tache-name"><br>
+                                <button>enregistrer</button>
+                                <button>annuler</button>
+                            </div>
+
+                            
+                        <div class="apparaition-tache">
+                            <!-- <div class="task_et_etat">
+                                <p class="task">task</p>
+                                <button class="status">TO DO</button>
+                            </div>
+                            <div class="task_et_etat">
+                                <p class="task">task</p>
+                                <button class="status">DOING</button>
+                            </div>
+                            <div class="task_et_etat">
+                                <p class="task">task</p>
+                                <button class="status">DONE</button>
+                            </div> -->
+                        </div>
+
+                        </div>
+
+
+                        <div class="Suivi-taches">
+                            <b>SUIVI</b>
+                            <button id="hide">>></button>
+                            <div class="status-column">
+                                <em>TO DO</em>
+                                <div class="task">Task</div>
+                            </div>
+                            <div class="status-column">
+                                <em>DOING</em>
+                                <div class="task">Task</div>
+                            </div>
+                            <div class="status-column">
+                                <em>DONE</em>
+                                <div class="task">Task</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+    
+    
+            
+           
+
+            
         </div>
     </div>
+    <script src="principal.js" defer></script>
 </body>
 
 </html>
