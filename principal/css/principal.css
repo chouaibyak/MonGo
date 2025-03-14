@@ -1,33 +1,51 @@
-/* start globel roles (chouaib) */
+/* Règles globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap');
-
-/* font style */
 body {
     font-family: "Work Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    overflow-x: hidden;
 }
 
-
-/* end globel roles (chouaib) */
-
-/*  start header */
+/* Header */
 .header {
     display: flex;
     grid-template-columns: 1fr 2fr 1fr;
 
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(38, 50, 56);
+    background-color: #263238;
     padding: 10px 20px;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 30px;
-    float: right;
+    height: 50px;
+    z-index: 1000;
+}
+
+.header .header-icon {
+    display: flex;
+    align-items: center;
+}
+
+.header .header-icon .head-logo {
+    color: #fff;
+    font-size: 31px;
+    margin-right: 10px;
+}
+
+.header .header-icon h2 {
+    color: aliceblue;
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 60px;
 }
 
 .button-header {
@@ -41,54 +59,47 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 5px;
+    transition: all 0.3s ease;
 }
 
 .button-header:hover {
-    box-shadow: 1px 1px 0px rgb(192, 233, 203, 0.6);
+    box-shadow: 0 0 5px rgba(192, 233, 203, 0.6);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .search-container {
-
     position: relative;
-    margin: 10px;
-    margin-right: -200px;
-
+    margin: 0 20px;
 }
 
 .search-container input {
     width: 300px;
     font-size: 12px;
-    padding: 6px;
+    padding: 8px 30px 8px 15px;
     border-radius: 20px;
     border: none;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     background-color: #48606C;
-
-
+    color: #fff;
+    transition: width 0.3s ease;
 }
 
-/*
-        @media (max-width: 1024px) {
-            .search-input {
-                width: 250px; /* Réduit un peu la largeur */
-
-
-.search-container ::placeholder {
-    color: #fff;
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .search-container input:focus {
-    width: 400px;
+    width: 350px;
+    outline: none;
 }
 
 .search-container i {
     position: absolute;
     top: 50%;
-    /* Positionne l icône au milieu verticalement du champ de recherche*/
-    right: 20px;
+    right: 15px;
     color: #fff;
     transform: translateY(-50%);
-    /* Décale l’icône vers le haut de 50% de sa propre hauteur pour qu’elle soit parfaitement centrée verticalement*/
     cursor: pointer;
 }
 
@@ -96,161 +107,515 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 40px;
 }
 
 .user-icon {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     background-color: #e1095f;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    color: #fff;
     border: none;
     cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
 }
 
-/* end header */
+.user-icon:hover {
+    transform: scale(1.1);
+}
 
-
-/* start sidebar*/
+/* Sidebar */
 .sidebar {
-    width: 200px;
+    width: 240px;
     background-color: #7BA186;
     color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    /*fixe side bar :hanan*/
     position: fixed;
-    /* Fixe la sidebar */
     height: 100vh;
-    /* S'assure qu'elle prend toute la hauteur de l'écran */
     left: 0;
-    /* L'aligne sur le côté gauche */
     top: 50px;
-    /* La fixe en haut */
-
+    z-index: 900;
 }
 
 .workspace {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     color: #112a13;
-
-
-
 }
-
 
 .workspace .icon {
     width: 40px;
     height: 40px;
     background-color: #C0E9CB;
-    border-radius: 60%;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     font-weight: bold;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin-top: 10px;
 }
 
 nav ul li {
     cursor: pointer;
-    margin-bottom: 37px;
-    margin-left: 29px;
-    font-size: 15px;
+    margin-bottom: 25px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li i {
-    margin-right: 13px;
-    font-size: 15px;
-
-
+    margin-right: 15px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
 }
 
 nav li:hover {
-    transition: 0.5s ease;
-    transform: translate(-15px);
-    padding: 20px;
-    border-radius: 100px;
-    background-color: #0000003d;
+    transform: translateX(-10px);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
 }
 
-/*end sidebar  */
-
-/* start container (place ou se fait tout les modif js {chouaib] */
+/* Container principal */
 .container {
-    background-color: #eee;
+    background-color: #f5f5f5;
     width: calc(100% - 240px);
-    height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 50px;
+    padding-bottom: 20px;
 }
 
 .content {
-    display: flex;
-    align-items: center;
     padding: 20px;
     height: 2000px;
 }
 
-/* end container */
-
+/* Projets */
 .board {
-    margin-top: 80px;
+    margin-top: 60px;
 }
+
+.MyProject {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    left: 240px;
+    right: 0;
+    width: calc(100% - 240px);
+    height: 60px;
+    padding-left: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    background-color: #eee;
+    z-index: 1000; /* Ensures it stays above other elements */
+ }
 
 .board-project {
     display: flex;
-    gap: 10px;
-    /* lespace entre aj-proj et projet*/
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+    margin-top: 60px;
 }
 
 .ajouter-projet,
 .projet {
-    margin-right: 15px;
-    width: 150px;
-    height: 100px;
+    width: 250px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* modifier dans "+" pour devient plus grand */
-.ajouter-projet {
-    font-size: 100px;
+    font-size: 24px;
     font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.ajouter-projet:hover,
 .projet:hover {
-    background-color: #11293f;
-}
-
-.ajouter-projet:hover {
-    background-color: #76929f;
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .ajouter-projet {
     background-color: #AEC5D0;
     color: #2d3e3f;
+    font-size: 50px;
 }
 
 .projet {
     background-color: #1D83CC;
     color: white;
 }
+
+/* Media queries pour la responsivité */
+@media (max-width: 1200px) {
+    .search-container input {
+        width: 200px;
+    }
+
+    .search-container input:focus {
+        width: 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-icon .head-logo+h2 {
+        display: none;
+    }
+
+    .icone1,
+    .icone2 {
+        display: none;
+    }
+
+    .search-container input {
+        width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Modifications pour le header mobile */
+    .header {
+        padding: 10px 15px;
+    }
+
+    /* Afficher uniquement le logo dans le premier bloc */
+    .header .header-icon:first-child .button-header {
+        display: none;
+    }
+
+    /* Cacher le bloc du milieu */
+    .header .header-icon:nth-child(2) .button-header {
+        display: none;
+    }
+
+    /* Conserver le logo, la recherche, les notifications et le profil */
+    .header .header-icon .head-logo,
+    .search-container,
+    .icone3,
+    .user-icon {
+        display: flex;
+    }
+
+    /* Ajuster la taille de la recherche pour mobile */
+    .search-container input {
+        width: 120px;
+    }
+
+    .search-container input:focus {
+        width: 150px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+
+    .workspace h2 {
+        display: none;
+    }
+
+    .workspace {
+        justify-content: center;
+    }
+
+    .workspace .icon {
+        margin-right: 0;
+    }
+
+    nav ul li span {
+        display: none;
+    }
+
+    nav ul li {
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    nav ul li i {
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .container,
+    .MyProject {
+        width: calc(100% - 70px);
+        left: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Réduire encore la taille du champ de recherche */
+    .search-container {
+        margin: 0 5px;
+    }
+
+    .search-container input {
+        width: 100px;
+        padding: 6px 25px 6px 10px;
+    }
+
+    .search-container input:focus {
+        width: 120px;
+    }
+
+    /* Ajuster les icônes pour économiser de l'espace */
+    .header-icon {
+        gap: 5px;
+    }
+
+    .button-header {
+        margin: 0 2px;
+    }
+
+    /* Ajuster les projets pour mobile */
+    .board-project {
+        justify-content: center;
+        padding: 20px 10px;
+    }
+
+    .ajouter-projet,
+    .projet {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Ajuster le titre */
+    .MyProject {
+        font-size: 28px;
+        padding-left: 15px;
+    }
+}
+/* start tasks */
+.Tasks {
+    display: none; /* Caché par défaut */
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  } */
+  .projetX-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    justify-content: space-between; /* Aligne les éléments aux extrémités */
+    align-items: center;
+    background-color:#003A88 ;
+    color: whitesmoke;
+    padding-top: 0px ;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    width: calc(100% - 200px);
+    position: fixed;
+    right: 0;
+    top: 50px;
+    left: 240px;
+    height: 50px;
+    z-index: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nomProjet {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre les éléments */
+}
+.nomProjet h1 {
+    margin-right: 30px;
+}
+
+.infoProjet {
+    display: flex;
+    justify-content: flex-end; /* Aligne les boutons à droite */
+    margin-right: 60px;
+    gap: 10px; /* Espace entre les boutons */
+}
+.task-content {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px; /* Évite les superpositions */
+    align-items: flex-start; /* Aligne le haut */
+    margin-top: 100px;
+    margin-right: 0;
+    background-color: #eee;
+    height: calc(100% - 100px);
+    width: 90% ;
+    padding: 20px;
+}
+.create-taches{
+    margin-bottom: 20px;
+    flex: 2;
+}
+.Suivi-taches{
+    flex-basis: 30%; /* Fixer la largeur */
+    min-width: 250px; /* Éviter qu'elle soit trop petite */
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 10px;
+}
+.status-column {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.status-column em {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.Tasks button {
+    padding: 8px 10px;
+    margin-right: 20px;
+    background-color: #dbdede;
+    color: #1a1c1c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+.task {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#hide{
+    float: right;
+}
+/* Masquer initialement les éléments input et les boutons */
+.tache-info {
+    display: none; /* Masque la div contenant l'input et les boutons */
+    margin-top: 10px; /* Espace entre le bouton "Ajouter une tâche" et les éléments */
+    background-color: rgb(141, 167, 216);
+    width: 220px;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5); 
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+/* Style pour l'input */
+.tache-name {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Espace entre l'input et les boutons */
+}
+
+/* Style pour les boutons */
+.tache-info button {
+    padding: 8px 12px;
+    margin-right: 10px; /* Espace entre les boutons */
+    border: none;
+    border-radius: 4px;
+    background-color: #5f76a9;
+    color: white;
+    cursor: pointer;
+}
+
+.tache-info button:hover {
+    background-color:#45577d; /* Changement de couleur au survol */
+}
+
+/* Style pour le bouton "Ajouter une tâche" */
+#add-task {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(141, 167, 216);
+    color: rgb(56, 56, 56);
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#add-task:hover {
+    background-color: rgb(84, 116, 176); /* Changement de couleur au survol */
+}
+.apparaition-tache{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    gap: 25px; /* Espace entre les paires */
+    padding-left: 20px;
+}
+.task_et_etat{
+    margin-top: 15px;
+    background-color: rgb(141, 167, 216);
+    width: 230px;
+    height: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left:40px ;
+    padding-right: 40px ;
+    border-radius: 5px;
+}
+.task_et_etat button{
+    padding: 2px 8px;
+    margin-right: 10px; /* Espace entre les boutons */
+    border: none;
+    border-radius: 2px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 12px;
+    float: right;
+    background-color:  #DFE9F5;
+}
+.task_et_etat p{
+    display: inline;
+    height: 10px;
+    background-color:  #DFE9F5;
+}
+
+.status-todo {
+    background-color: grey; /* Gris pour TO DO */
+    color: white; /* Texte en blanc pour une meilleure lisibilité */
+  }
+  
+  .status-doing {
+    background-color: blue; /* Bleu pour DOING */
+    color: white;
+  }
+  
+  .status-done {
+    background-color: green; /* Vert pour DONE */
+    color: white;
+  }
