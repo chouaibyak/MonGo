@@ -411,3 +411,208 @@ nav li:hover {
         padding-left: 15px;
     }
 }
+/* start tasks */
+.Tasks {
+    display: none; /* Caché par défaut */
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  } */
+  .projetX-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    justify-content: space-between; /* Aligne les éléments aux extrémités */
+    align-items: center;
+    background-color:#003A88 ;
+    color: whitesmoke;
+    padding-top: 0px ;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    width: calc(100% - 200px);
+    position: fixed;
+    right: 0;
+    top: 50px;
+    left: 240px;
+    height: 50px;
+    z-index: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nomProjet {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre les éléments */
+}
+.nomProjet h1 {
+    margin-right: 30px;
+}
+
+.infoProjet {
+    display: flex;
+    justify-content: flex-end; /* Aligne les boutons à droite */
+    margin-right: 60px;
+    gap: 10px; /* Espace entre les boutons */
+}
+.task-content {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px; /* Évite les superpositions */
+    align-items: flex-start; /* Aligne le haut */
+    margin-top: 100px;
+    margin-right: 0;
+    background-color: #eee;
+    height: calc(100% - 100px);
+    width: 90% ;
+    padding: 20px;
+}
+.create-taches{
+    margin-bottom: 20px;
+    flex: 2;
+}
+.Suivi-taches{
+    flex-basis: 30%; /* Fixer la largeur */
+    min-width: 250px; /* Éviter qu'elle soit trop petite */
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 10px;
+}
+.status-column {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.status-column em {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.Tasks button {
+    padding: 8px 10px;
+    margin-right: 20px;
+    background-color: #dbdede;
+    color: #1a1c1c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+.task {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#hide{
+    float: right;
+}
+/* Masquer initialement les éléments input et les boutons */
+.tache-info {
+    display: none; /* Masque la div contenant l'input et les boutons */
+    margin-top: 10px; /* Espace entre le bouton "Ajouter une tâche" et les éléments */
+    background-color: rgb(141, 167, 216);
+    width: 220px;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5); 
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+/* Style pour l'input */
+.tache-name {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Espace entre l'input et les boutons */
+}
+
+/* Style pour les boutons */
+.tache-info button {
+    padding: 8px 12px;
+    margin-right: 10px; /* Espace entre les boutons */
+    border: none;
+    border-radius: 4px;
+    background-color: #5f76a9;
+    color: white;
+    cursor: pointer;
+}
+
+.tache-info button:hover {
+    background-color:#45577d; /* Changement de couleur au survol */
+}
+
+/* Style pour le bouton "Ajouter une tâche" */
+#add-task {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(141, 167, 216);
+    color: rgb(56, 56, 56);
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#add-task:hover {
+    background-color: rgb(84, 116, 176); /* Changement de couleur au survol */
+}
+.apparaition-tache{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    gap: 25px; /* Espace entre les paires */
+    padding-left: 20px;
+}
+.task_et_etat{
+    margin-top: 15px;
+    background-color: rgb(141, 167, 216);
+    width: 230px;
+    height: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left:40px ;
+    padding-right: 40px ;
+    border-radius: 5px;
+}
+.task_et_etat button{
+    padding: 2px 8px;
+    margin-right: 10px; /* Espace entre les boutons */
+    border: none;
+    border-radius: 2px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 12px;
+    float: right;
+    background-color:  #DFE9F5;
+}
+.task_et_etat p{
+    display: inline;
+    height: 10px;
+    background-color:  #DFE9F5;
+}
+
+.status-todo {
+    background-color: grey; /* Gris pour TO DO */
+    color: white; /* Texte en blanc pour une meilleure lisibilité */
+  }
+  
+  .status-doing {
+    background-color: blue; /* Bleu pour DOING */
+    color: white;
+  }
+  
+  .status-done {
+    background-color: green; /* Vert pour DONE */
+    color: white;
+  }
