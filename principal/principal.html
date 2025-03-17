@@ -22,12 +22,12 @@
         <div class="header-icon">
             <i class="fa-brands fa-monero head-logo"></i>
             <h2><i>M</i>an<i>G</i>o</h2>
-            <button class="button-header"><i class="fa-solid fa-arrow-left"></i></button>
-            <button class="button-header"><i class="fa-solid fa-arrow-right"></i></button>
+            <button class="button-header"   data-tooltip="Cliquer pour revenir en arriere"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="button-header"    data-tooltip="Cliquer pour avancer"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
         <div class="header-icon">
-            <button class="button-header"><i class="fa-solid fa-clock-rotate-left"></i></button>
+            <button class="button-header" data-tooltip="Historique"><i class="fa-solid fa-clock-rotate-left"></i></button>
             <div class="search-container">
                 <input type="text" placeholder="Search...">
                 <i class="fa fa-search"></i>
@@ -35,17 +35,15 @@
         </div>
 
         <div class="header-icon">
-
             <div class="icone1">
-                <button class="button-header"><i class="fa-regular fa-clipboard"></i></button>
+                <button class="button-header"     data-tooltip="Note"><i class="fa-regular fa-clipboard"></i></button>
             </div>
             <div class="icone2">
-                <button class="button-header"><i class="fa-solid fa-calendar-days"></i></button>
+                <button class="button-header"  data-tooltip="Calendrier"><i class="fa-solid fa-calendar-days"></i></button>
             </div>
             <div class="icone3">
-                <button class="button-header"><i class="fa-solid fa-bell"></i></button>
+                <button class="button-header"    data-tooltip="Notification"><i class="fa-solid fa-bell"></i></button>
             </div>
-
             <button class="user-icon">EB</button>
         </div>
     </div>
@@ -58,8 +56,8 @@
         </div>
         <nav>
             <ul>
-                <li class="Projet"><i class="fa-solid fa-diagram-project"></i><span>MyProject</span></li>
-                <li class="team"><i class="fa-solid fa-users"></i><span>Team</span></li>
+                <li   id="myProjectBtn"  class="Projet"><i class="fa-solid fa-diagram-project"></i><span>MyProject</span></li>
+                <li   id="teamBtn"  class="team"><i class="fa-solid fa-users"></i><span>Team</span></li>
                 <li class="doc"><i class="fa-solid fa-file"></i><span>Documents</span></li>
                 <li class="task-workS"><i class="fas fa-tasks"></i><span>Tasks</span></li>
             </ul>
@@ -68,9 +66,23 @@
 
     <!-- Contenu principal -->
     <div class="container">
-        <h1 class="MyProject"><i>My Projects</i></h1>
-        <div class="content">
+        <div id="myProjectsPage"  class="content">
+           <!-- Ajoutez ce bouton -->
+
+           <div class="board">
+            <div class="MyProject">
+                <h1><i>My Projects</i></h1>
+                <button id="viewProjectBtn" class="viewproject">
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+            </div>
+
+             <!--  
             <div class="board">
+                <h1 class="MyProject"><i>My Projects</i></h1>
+                <button id="viewProjectBtn"  class="viewproject"> <i class="fa-solid fa-caret-down"></i></button>
+                -->
+            
                 <div class="board-project">
                     <div class="ajouter-projet">+</div>
 
@@ -80,7 +92,46 @@
                 </div>
             </div>
 
+</div>
 
+<div id="viewProjectPage" class="content" style="display: none;">
+    <h1>View Projects</h1>
+    <div class="search-project-container">
+        <input type="text" id="searchInput" placeholder="Search projects..." class="search-project-input">
+        <button class="search-project-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <table class="project-table">
+        <thead>
+            <tr>
+                <th>Projet</th>
+                <th>Description</th>
+                <th>Date de Début</th>
+                <th>Date de Fin</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>platforme de gestion de projet</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
+                <td>10 mars 2025</td>
+                <td>1 Avril 2025</td>
+                <td><span class="status in-progress">En cours</span></td>
+                <td><button class="view-btn">Voir</button></td>
+            </tr>
+            <tr>
+                <td>Application e-commerce</td>
+                <td>Lorem ipsum, dolor sit amet consectetur adipisicing eli</td>
+                <td>10 Janvier 2023</td>
+                <td>10 Décembre 2023</td>
+                <td><span class="status completed">Terminé</span></td>
+                <td><button class="view-btn">Voir</button></td>
+            </tr>
+        </tbody>
+    </table>
+  
+</div>
 
 
             
@@ -146,13 +197,69 @@
                     </div>
                 </div>
     
-    
+                <div id="teamPage" class="content" style="display: none;">
+                    <div class="header2">
+                    <h2>Users and Teams</h2>
+        
+                    <div class="inspirational-title">
+                        <h2>Behind Every Success, There's a Team</h2>
+                        <p>Add your team and start creating great things together.</p>
+                    </div>
+                    <div>
+                        
+                        <button>Create team</button>
+                        <button>Add users</button>
+                    </div>
+                </div>
+                    
+                
+                    <!-- Barre de recherche -->
+                    <div class="search-bar-container">
+                   <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        
+                        <input type="text" id="searchTeamInput" placeholder="Search for people and teams" class="search-input">
+                    </div>
+                
+                    <!-- Section des membres -->
+                    <div class="team-section">
+                        <h2>Users</h2>
+                        
+                       
+                        
+                        <!-- Liste des membres -->
+                        <div class="team-list">
+        
+        
+                            <div class="team-member">
+                                <div class="avatar">BK</div> 
+                                <div class="member-info">
+                                    <h3>Basma El kasimi</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing.
+                                    </p>
+                                    <span class="status">Online</span> 
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <div class="avatar">SN</div> 
+                                <div class="member-info">
+                                    <h3>Someone Name</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                    <span class="status">Offline</span> 
+                                </div>
+                            </div>
+                        
+                          
+                            <!-- Ajoutez d'autres membres ici -->
+                        </div>
+                    </div>
+                </div>
+        
+        </div>
             
            
 
             
-        </div>
-    </div>
+    
     <script src="principal.js" defer></script>
 </body>
 

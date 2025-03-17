@@ -1,3 +1,4 @@
+
 /* Règles globales */
 * {
     margin: 0;
@@ -15,8 +16,6 @@ body {
 /* Header */
 .header {
     display: flex;
-    grid-template-columns: 1fr 2fr 1fr;
-
     justify-content: space-between;
     align-items: center;
     background-color: #263238;
@@ -27,7 +26,7 @@ body {
     left: 0;
     right: 0;
     height: 50px;
-    z-index: 1000;
+    z-index: 4;
 }
 
 .header .header-icon {
@@ -141,7 +140,7 @@ body {
     height: 100vh;
     left: 0;
     top: 50px;
-    z-index: 900;
+    z-index: 3;
 }
 
 .workspace {
@@ -208,7 +207,7 @@ nav li:hover {
 
 .content {
     padding: 20px;
-    height: 2000px;
+    z-index: 2;
 }
 
 /* Projets */
@@ -216,7 +215,12 @@ nav li:hover {
     margin-top: 60px;
 }
 
-.MyProject {
+
+
+
+
+
+/*.MyProject {
     display: flex;
     align-items: center;
     position: fixed;
@@ -229,8 +233,40 @@ nav li:hover {
     font-size: 35px;
     font-weight: bold;
     background-color: #eee;
-    z-index: 1000; /* Ensures it stays above other elements */
- }
+    z-index: 1000; 
+}/*
+    /* Ensures it stays above other elements*/
+
+
+    .MyProject {
+        display: flex;
+        align-items: center;
+        gap: 30px; /* Espacement entre le titre et le bouton */
+        position: fixed;
+        top: 50px;
+        left: 240px;
+        right: 0;
+        width: calc(100% - 240px);
+        height: 60px;
+        padding-left: 30px;
+        background-color: #eee;
+        
+    }
+    .MyProject h1{
+
+        font-size: 35px;
+        font-weight: bold;
+    }
+    
+    .viewproject {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+
+
 
 .board-project {
     display: flex;
@@ -365,7 +401,8 @@ nav li:hover {
     }
 
     .container,
-    .MyProject {
+    .MyProject,
+    .projetX-bar {
         width: calc(100% - 70px);
         left: 70px;
     }
@@ -409,7 +446,8 @@ nav li:hover {
     }
 
     /* Ajuster le titre */
-    .MyProject {
+    .MyProject ,
+    .projetX-bar {
         font-size: 28px;
         padding-left: 15px;
     }
@@ -431,10 +469,12 @@ nav li:hover {
     }
   } */
   .projetX-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
-    justify-content: space-between; /* Aligne les éléments aux extrémités */
-    align-items: center;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+     /* Deux colonnes égales */
+    /* justify-content: space-between;  */
+    /* Aligne les éléments aux extrémités */
+    /* align-items: center;
     background-color:#003A88 ;
     color: whitesmoke;
     padding-top: 0px ;
@@ -447,7 +487,20 @@ nav li:hover {
     left: 240px;
     height: 50px;
     z-index: 1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    left: 240px;
+    right: 0;
+    width: calc(100% - 240px);
+    height: 60px;
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #eee;
+  /* Ensures it stays above other elements */
 }
 
 .nomProjet {
@@ -461,9 +514,9 @@ nav li:hover {
 
 .infoProjet {
     display: flex;
-    justify-content: flex-end; /* Aligne les boutons à droite */
-    margin-right: 60px;
-    gap: 10px; /* Espace entre les boutons */
+    align-items: center;
+    gap: 10px;
+    margin-left: auto; /* Pousse .infoProjet à droite */
 }
 .task-content {
     display: flex;
@@ -472,9 +525,8 @@ nav li:hover {
     align-items: flex-start; /* Aligne le haut */
     margin-top: 100px;
     margin-right: 0;
-    background-color: #eee;
     height: calc(100% - 100px);
-    width: 90% ;
+    width: 100% ;
     padding: 20px;
 }
 .create-taches{
@@ -482,7 +534,7 @@ nav li:hover {
     flex: 2;
 }
 .Suivi-taches{
-    flex-basis: 30%; /* Fixer la largeur */
+    flex-basis: 35%; /* Fixer la largeur */
     min-width: 250px; /* Éviter qu'elle soit trop petite */
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
@@ -525,7 +577,7 @@ nav li:hover {
     background-color: rgb(141, 167, 216);
     width: 220px;
     align-items: center;
-    padding: 10px 30px;
+    padding: 10px 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5); 
     margin-top: 40px;
@@ -578,19 +630,19 @@ nav li:hover {
     padding-left: 20px;
 }
 .task_et_etat{
-    margin-top: 15px;
+    margin-top: -10px;
     background-color: rgb(141, 167, 216);
     width: 230px;
-    height: 20px;
+    height: 60px;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left:40px ;
+    padding-left:20px ;
     padding-right: 40px ;
     border-radius: 5px;
 }
 .task_et_etat button{
     padding: 2px 8px;
-    margin-right: 10px; /* Espace entre les boutons */
+    margin-right: -25px; /* Espace entre les boutons */
     border: none;
     border-radius: 2px;
     color: rgb(0, 0, 0);
@@ -602,7 +654,7 @@ nav li:hover {
 .task_et_etat p{
     display: inline;
     height: 10px;
-    background-color:  #DFE9F5;
+    background-color:  rgb(141, 167, 216);
 }
 
 .status-todo {
@@ -617,5 +669,419 @@ nav li:hover {
   
   .status-done {
     background-color: green; /* Vert pour DONE */
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+/* start globel roles (chouaib) */
+
+
+
+
+
+
+
+
+
+
+
+/*Basma  sidebar button*/
+
+
+/* Style général du tableau */
+
+
+.project-table {
+    width:100%;
+    border-collapse: collapse;
+    background: #fff;
+ 
+   margin-top: 50px;
+   height:150px ;
+   border-top: 2px solid green;
+  border-right: 2px solid green;
+   
+}
+  
+   
+  
+
+
+.project-table th, .project-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.project-table th {
+    background: #fff;
+    color: rgb(22, 21, 21);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+   
+   
+}
+
+.project-table tr:hover {
+    background: #f9f9f9;
+    transition: background 0.3s ease;
+}
+
+/* Style des statuts */
+.status {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+}
+
+.status.in-progress {
+    background: #d6e232;
     color: white;
-  }
+}
+
+.status.completed {
+    background: #28a745;
+    color: white;
+}
+
+/* Style des boutons */
+.view-btn {
+    padding: 6px 12px;
+    background: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.view-btn:hover {
+    background: #2980b9;
+    transform: scale(1.03);
+}
+
+/* Style du footer du tableau */
+.table-footer {
+    padding: 12px;
+    text-align: right;
+    font-size: 13px;
+    color: #666;
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+}
+/* Animation plus subtile pour les lignes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-table tbody tr {
+    animation: fadeIn 0.4s ease forwards;
+    opacity: 0;
+}
+
+/* Conteneur principal */
+.table-container {
+    width: 100%;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px; /* Espace intérieur pour la barre de recherche */
+}
+
+/* Barre de recherche */
+.search-project-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espace entre la barre de recherche et le tableau */
+    width:200px;
+  
+    float: right;
+    margin-right: 50px;
+   
+    
+}
+
+.search-project-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px 0 0 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-project-input:focus {
+    border-color: #3b5e75;
+    width: 350px;
+}
+
+.search-project-btn {
+    padding: 8px 12px;
+    background: #14679f;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 50px;
+}
+
+.search-project-btn:hover {
+    background: #2980b9;
+}
+
+.search-project-btn i {
+    font-size: 15px;
+}
+
+/* end myprojectPage*/
+
+
+
+/*start teamPage*/
+#teamPage {
+    background: rgb(254, 251, 251);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0 auto;
+    margin-right: 40px;
+}
+
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.header2 button {
+    background-color: #242cc8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12;
+    font-weight: normal;
+    transition: background 0.3s ease, transform 0.2s ease;
+    height: 35;
+}
+
+.header2 button:hover {
+    background: #1a22a5;
+    transform: scale(1.05);
+}
+
+.search-bar-container {
+    display: flex;
+    width: 100%; 
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 700px;
+    float: left;
+    margin-left: 30px;
+    border-bottom: 1px solid #14679f;
+    padding-bottom: 5px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-btn {
+    color: rgb(26, 24, 24);
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.team-section {
+   
+    margin-top: 100px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 40px;
+}
+
+.team-section h2 {
+    font-size: 22px;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-left: 30px;
+   
+}
+
+.team-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+
+.team-member:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.member-info h3 {
+    font-size: 15px;
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0;
+}
+
+.member-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+
+
+
+.team-member {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 15px; /* Espace entre avatar et description */
+}
+
+.avatar {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    background-color: #c05c5c; /* Couleur temporaire pour l'avatar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.status {
+    font-size: 12px;
+    color: green; /* Couleur pour le statut */
+    font-weight: bold;
+}
+
+
+.inspirational-title {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease forwards;
+
+}
+
+.inspirational-title h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.inspirational-title p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+.button-header {
+    position: relative;
+    cursor: pointer;
+    
+    }
+    .button-header::before{
+        content:attr(data-tooltip);
+        position: absolute;
+        bottom: -30px;
+        left:50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.75);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s,visibility 0.3s;
+        z-index: 5;
+      
+      
+       
+    
+    }
+    .button-header:hover::before{
+        opacity: 1;
+        visibility: visible;
+    
+       
+    }
+
+/*end teamPage*/
+/*Basma*/
