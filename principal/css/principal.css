@@ -362,7 +362,8 @@ nav li:hover {
     }
 
     .container,
-    .MyProject {
+    .MyProject,
+    .projetX-bar {
         width: calc(100% - 70px);
         left: 70px;
     }
@@ -406,7 +407,8 @@ nav li:hover {
     }
 
     /* Ajuster le titre */
-    .MyProject {
+    .MyProject ,
+    .projetX-bar {
         font-size: 28px;
         padding-left: 15px;
     }
@@ -428,10 +430,12 @@ nav li:hover {
     }
   } */
   .projetX-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
-    justify-content: space-between; /* Aligne les éléments aux extrémités */
-    align-items: center;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+     /* Deux colonnes égales */
+    /* justify-content: space-between;  */
+    /* Aligne les éléments aux extrémités */
+    /* align-items: center;
     background-color:#003A88 ;
     color: whitesmoke;
     padding-top: 0px ;
@@ -444,7 +448,20 @@ nav li:hover {
     left: 240px;
     height: 50px;
     z-index: 1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    left: 240px;
+    right: 0;
+    width: calc(100% - 240px);
+    height: 60px;
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #eee;
+    z-index: 1000; /* Ensures it stays above other elements */
 }
 
 .nomProjet {
@@ -458,9 +475,9 @@ nav li:hover {
 
 .infoProjet {
     display: flex;
-    justify-content: flex-end; /* Aligne les boutons à droite */
-    margin-right: 60px;
-    gap: 10px; /* Espace entre les boutons */
+    align-items: center;
+    gap: 10px;
+    margin-left: auto; /* Pousse .infoProjet à droite */
 }
 .task-content {
     display: flex;
@@ -469,9 +486,8 @@ nav li:hover {
     align-items: flex-start; /* Aligne le haut */
     margin-top: 100px;
     margin-right: 0;
-    background-color: #eee;
     height: calc(100% - 100px);
-    width: 90% ;
+    width: 100% ;
     padding: 20px;
 }
 .create-taches{
@@ -479,7 +495,7 @@ nav li:hover {
     flex: 2;
 }
 .Suivi-taches{
-    flex-basis: 30%; /* Fixer la largeur */
+    flex-basis: 35%; /* Fixer la largeur */
     min-width: 250px; /* Éviter qu'elle soit trop petite */
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
@@ -522,7 +538,7 @@ nav li:hover {
     background-color: rgb(141, 167, 216);
     width: 220px;
     align-items: center;
-    padding: 10px 30px;
+    padding: 10px 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5); 
     margin-top: 40px;
@@ -575,19 +591,19 @@ nav li:hover {
     padding-left: 20px;
 }
 .task_et_etat{
-    margin-top: 15px;
+    margin-top: -10px;
     background-color: rgb(141, 167, 216);
     width: 230px;
-    height: 20px;
+    height: 60px;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left:40px ;
+    padding-left:20px ;
     padding-right: 40px ;
     border-radius: 5px;
 }
 .task_et_etat button{
     padding: 2px 8px;
-    margin-right: 10px; /* Espace entre les boutons */
+    margin-right: -25px; /* Espace entre les boutons */
     border: none;
     border-radius: 2px;
     color: rgb(0, 0, 0);
@@ -599,7 +615,7 @@ nav li:hover {
 .task_et_etat p{
     display: inline;
     height: 10px;
-    background-color:  #DFE9F5;
+    background-color:  rgb(141, 167, 216);
 }
 
 .status-todo {

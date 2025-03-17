@@ -145,21 +145,26 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const projet1 = document.getElementById("projet1");
-  const content = document.querySelector(".board");
+  const board = document.querySelector(".board");
   const taskBoard = document.getElementById("task-board");
   const backButton = document.getElementById("back");
+  const myProjectTitle = document.querySelector(".MyProject");
 
   // Cacher le tableau des tâches au départ
   taskBoard.style.display = "none";
 
+  // Afficher le tableau des tâches et cacher "My Projects"
   projet1.addEventListener("click", function () {
-    content.style.display = "none"; // Cache le contenu principal
-    taskBoard.style.display = "block"; // Affiche le tableau des tâches
+      board.style.display = "none"; // Cache la section "My Projects"
+      myProjectTitle.style.display = "none"; // Cache le titre "My Projects"
+      taskBoard.style.display = "block"; // Affiche le tableau des tâches
   });
 
+  // Revenir à la section "My Projects"
   backButton.addEventListener("click", function () {
-    taskBoard.style.display = "none"; // Cache le tableau des tâches
-    content.style.display = "block"; // Réaffiche le contenu principal
+      taskBoard.style.display = "none"; // Cache le tableau des tâches
+      board.style.display = "block"; // Affiche la section "My Projects"
+      myProjectTitle.style.display = "block"; // Affiche le titre "My Projects"
   });
 });
 
