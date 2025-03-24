@@ -10,16 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Afficher le tableau des tâches et cacher "My Projects"
   projet1.addEventListener("click", function () {
-    board.style.display = "none"; // Cache la section "My Projects"
-    myProjectTitle.style.display = "none"; // Cache le titre "My Projects"
-    taskBoard.style.display = "block"; // Affiche le tableau des tâches
+      board.style.display = "none"; // Cache la section "My Projects"
+      myProjectTitle.style.display = "none"; // Cache le titre "My Projects"
+      taskBoard.style.display = "block"; // Affiche le tableau des tâches
   });
 
   // Revenir à la section "My Projects"
   backButton.addEventListener("click", function () {
-    taskBoard.style.display = "none"; // Cache le tableau des tâches
-    board.style.display = "block"; // Affiche la section "My Projects"
-    myProjectTitle.style.display = "block"; // Affiche le titre "My Projects"
+      taskBoard.style.display = "none"; // Cache le tableau des tâches
+      board.style.display = "block"; // Affiche la section "My Projects"
+      myProjectTitle.style.display = "block"; // Affiche le titre "My Projects"
   });
 });
 
@@ -59,77 +59,89 @@ document.addEventListener("DOMContentLoaded", function () {
   const addTaskButton = document.getElementById("add-task");
   const tacheInfo = document.querySelector(".tache-info");
   const tacheNameInput = document.querySelector(".tache-name");
+  const tacheDeadlineInput = document.querySelector(".tache-deadline");
   const enregistrerButton = tacheInfo.querySelector("button");
   const annulerButton = tacheInfo.querySelectorAll("button")[1];
   const toDoColumn = document.querySelector(".status-column em").parentElement;
   const apparaitionTache = document.querySelector(".apparaition-tache");
 
-  // Charger les tâches sauvegardées dans localStorage
   loadTasks();
 
-  // Afficher ou masquer tache-info au clic sur "Ajouter une tâche"
   addTaskButton.addEventListener("click", function () {
-    if (tacheInfo.style.display === "none" || tacheInfo.style.display === "") {
-      tacheInfo.style.display = "block";
-    } else {
-      tacheInfo.style.display = "none";
-    }
+    tacheInfo.style.display = tacheInfo.style.display === "none" || tacheInfo.style.display === "" ? "block" : "none";
   });
 
-  // Masquer tache-info au clic sur "annuler"
   annulerButton.addEventListener("click", function () {
     tacheInfo.style.display = "none";
     tacheNameInput.value = "";
+    tacheDeadlineInput.value = "";
   });
 
-  // Ajouter une nouvelle tâche au clic sur "enregistrer"
   enregistrerButton.addEventListener("click", function () {
     const taskName = tacheNameInput.value.trim();
+    const taskDeadline = tacheDeadlineInput.value;
 
-    if (taskName) {
-      // Créer une nouvelle tâche
-      const newTask = {
-        name: taskName,
-        status: "TO DO",
-      };
-
-      // Ajouter la tâche dans la section "Suivi"
-      const newTaskSuivi = document.createElement("div");
-      newTaskSuivi.className = "task";
-      newTaskSuivi.textContent = taskName;
-      toDoColumn.appendChild(newTaskSuivi);
-
-      // Ajouter la tâche dans la section "apparaition-tache"
-      const newTaskApparaition = document.createElement("div");
-      newTaskApparaition.className = "task_et_etat";
-
-      const taskText = document.createElement("p");
-      taskText.className = "task";
-      taskText.textContent = taskName;
-
-      const statusButton = document.createElement("button");
-      statusButton.className = "status";
-      statusButton.textContent = "TO DO";
-      statusButton.addEventListener("click", function () {
-        changeTaskStatus(newTaskSuivi, statusButton);
-      });
-
-      newTaskApparaition.appendChild(taskText);
-      newTaskApparaition.appendChild(statusButton);
-      apparaitionTache.appendChild(newTaskApparaition);
-
-      // Sauvegarder la tâche dans localStorage
+    if (taskName && taskDeadline) {
+      const newTask = { name: taskName, deadline: taskDeadline, status: "TO DO" };
+      addTaskToDOM(newTask);
       saveTask(newTask);
-
-      // Masquer tache-info et vider l'input
       tacheInfo.style.display = "none";
       tacheNameInput.value = "";
+      tacheDeadlineInput.value = "";
     } else {
-      alert("Veuillez entrer un nom de tâche valide.");
+      alert("Veuillez entrer un nom de tâche et une date de deadline valides.");
     }
   });
 
-  // Fonction pour changer le statut d'une tâche
+  function addTaskToDOM(task) {
+    // Créer l'élément de tâche pour la colonne de statut (sans bouton "X")
+    const newTaskSuivi = document.createElement("div");
+    newTaskSuivi.className = "task";
+    newTaskSuivi.textContent = `${task.name}  ${task.deadline}`;
+    newTaskSuivi.dataset.taskName = task.name; // Ajouter un attribut pour identifier la tâche
+
+    // Créer l'élément de tâche pour la section .apparaition-tache (avec bouton "X")
+    const newTaskApparaition = document.createElement("div");
+    newTaskApparaition.className = "task_et_etat";
+    newTaskApparaition.dataset.taskName = task.name; // Ajouter un attribut pour identifier la tâche
+
+    const taskText = document.createElement("p");
+    taskText.className = "task";
+    taskText.textContent = `${task.name} ${task.deadline}`;
+
+    const statusButton = document.createElement("button");
+    statusButton.className = "status";
+    statusButton.textContent = task.status;
+    statusButton.addEventListener("click", function () {
+      changeTaskStatus(newTaskSuivi, statusButton);
+    });
+
+    // Ajouter le bouton "X" pour supprimer la tâche
+    const deleteButton = document.createElement("button");
+    deleteButton.id = `delete-task-${task.name.replace(/\s+/g, "-")}`; // Créer un ID unique
+    deleteButton.textContent = "X";
+    deleteButton.addEventListener("click", function () {
+      deleteTask(task.name); // Supprimer la tâche du localStorage
+      newTaskSuivi.remove(); // Supprimer la tâche de la colonne de statut
+      newTaskApparaition.remove(); // Supprimer la tâche de .apparaition-tache
+    });
+
+    // Ajouter les éléments à .apparaition-tache
+    newTaskApparaition.appendChild(taskText);
+    newTaskApparaition.appendChild(statusButton);
+    newTaskApparaition.appendChild(deleteButton);
+    apparaitionTache.appendChild(newTaskApparaition);
+
+    // Ajouter la tâche à la colonne de statut appropriée
+    if (task.status === "TO DO") {
+      toDoColumn.appendChild(newTaskSuivi);
+    } else if (task.status === "DOING") {
+      document.querySelectorAll(".status-column")[1].appendChild(newTaskSuivi);
+    } else if (task.status === "DONE") {
+      document.querySelectorAll(".status-column")[2].appendChild(newTaskSuivi);
+    }
+  }
+
   function changeTaskStatus(task, statusButton) {
     const currentStatus = statusButton.textContent;
     const doingColumn = document.querySelectorAll(".status-column")[1];
@@ -145,59 +157,20 @@ document.addEventListener("DOMContentLoaded", function () {
       statusButton.textContent = "TO DO";
       toDoColumn.appendChild(task);
     }
-
-    // Mettre à jour le statut dans localStorage
-    updateTaskStatus(task.textContent, statusButton.textContent);
+    updateTaskStatus(task.dataset.taskName, statusButton.textContent); // Mettre à jour le statut dans localStorage
   }
 
-  // Fonction pour sauvegarder une tâche dans localStorage
   function saveTask(task) {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.push(task);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 
-  // Fonction pour charger les tâches depuis localStorage
   function loadTasks() {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
-    tasks.forEach((task) => {
-      // Ajouter la tâche dans la section "Suivi"
-      const newTaskSuivi = document.createElement("div");
-      newTaskSuivi.className = "task";
-      newTaskSuivi.textContent = task.name;
-
-      // Ajouter la tâche dans la section "apparaition-tache"
-      const newTaskApparaition = document.createElement("div");
-      newTaskApparaition.className = "task_et_etat";
-
-      const taskText = document.createElement("p");
-      taskText.className = "task";
-      taskText.textContent = task.name;
-
-      const statusButton = document.createElement("button");
-      statusButton.className = "status";
-      statusButton.textContent = task.status;
-      statusButton.addEventListener("click", function () {
-        changeTaskStatus(newTaskSuivi, statusButton);
-      });
-
-      newTaskApparaition.appendChild(taskText);
-      newTaskApparaition.appendChild(statusButton);
-      apparaitionTache.appendChild(newTaskApparaition);
-
-      // Ajouter la tâche dans la colonne appropriée
-      if (task.status === "TO DO") {
-        toDoColumn.appendChild(newTaskSuivi);
-      } else if (task.status === "DOING") {
-        document.querySelectorAll(".status-column")[1].appendChild(newTaskSuivi);
-      } else if (task.status === "DONE") {
-        document.querySelectorAll(".status-column")[2].appendChild(newTaskSuivi);
-      }
-    });
+    tasks.forEach((task) => addTaskToDOM(task));
   }
 
-  // Fonction pour mettre à jour le statut d'une tâche dans localStorage
   function updateTaskStatus(taskName, newStatus) {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks = tasks.map((task) => {
@@ -208,8 +181,163 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
+
+  function deleteTask(taskName) {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks = tasks.filter((task) => task.name !== taskName);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const todoListContainer = document.querySelector('.todo-list-container');
+  const masquerTodoButton = document.querySelector('.masquer-todo');
+  const tasks = document.querySelectorAll('.task_et_etat');
+
+  // Afficher la liste "To-Do" lors du clic sur une tâche
+  tasks.forEach(task => {
+    task.addEventListener('click', () => {
+      todoListContainer.classList.add('visible');
+    });
+  });
+
+  // Masquer la liste "To-Do" lors du clic sur le bouton "X"
+  masquerTodoButton.addEventListener('click', function () {
+    todoListContainer.classList.remove('visible');
+  });
+
+  // Masquer la liste "To-Do" lors du clic en dehors de la liste
+  window.addEventListener('click', (event) => {
+    if (event.target === todoListContainer) {
+      todoListContainer.classList.remove('visible');
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Sélection des éléments du DOM
+  const input = document.querySelector(".todo-input"); // Champ de saisie
+  const addButton = document.querySelector(".add-button"); // Bouton Ajouter
+  const todosHtml = document.querySelector(".todos"); // Conteneur des tâches
+  const emptyImage = document.querySelector(".empty-image"); // Image vide
+  const deleteAllButton = document.querySelector(".delete-all"); // Bouton Supprimer tout
+  const filters = document.querySelectorAll(".filter"); // Boutons de filtre
+  let todosJson = JSON.parse(localStorage.getItem("todos")) || []; // Tâches sauvegardées
+  let filter = ''; // Filtre actif
+
+  // Afficher les tâches au chargement
+  showTodos();
+
+  // Fonction pour générer le HTML d'une tâche
+  function getTodoHtml(todo, index) {
+    if (filter && filter !== todo.status) {
+      return ''; // Ignore les tâches qui ne correspondent pas au filtre
+    }
+    const checked = todo.status === "completed" ? "checked" : "";
+    return `
+      <li class="todo">
+        <label for="${index}">
+          <input id="${index}" onclick="updateStatus(this, ${index})" type="checkbox" ${checked}>
+          <span class="${checked}">${todo.name}</span>
+        </label>
+        <button class="delete-btn" data-index="${index}" onclick="remove(this)"><i class="fa fa-times"></i></button>
+      </li>
+    `;
+  }
+
+  // Fonction pour afficher les tâches
+  function showTodos() {
+    if (todosJson.length === 0) {
+      todosHtml.innerHTML = '';
+      emptyImage.style.display = 'block';
+    } else {
+      todosHtml.innerHTML = todosJson.map(getTodoHtml).join('');
+      emptyImage.style.display = 'none';
+    }
+    updateProgressBar(); // Met à jour la barre de progression
+  }
+
+  // Fonction pour ajouter une tâche
+  function addTodo(todo) {
+    if (!todo) return; // Ne pas ajouter de tâche vide
+    input.value = ""; // Vide le champ de saisie
+    todosJson.unshift({ name: todo, status: "pending" }); // Ajoute la tâche au début du tableau
+    localStorage.setItem("todos", JSON.stringify(todosJson)); // Sauvegarde dans le localStorage
+    showTodos(); // Affiche les tâches mises à jour
+  }
+
+  // Écouteur pour le bouton Ajouter
+  addButton.addEventListener("click", () => {
+    const todo = input.value.trim();
+    addTodo(todo);
+  });
+
+  // Écouteur pour la touche Entrée
+  input.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      const todo = input.value.trim();
+      addTodo(todo);
+    }
+  });
+
+  // Fonction pour mettre à jour le statut d'une tâche
+  window.updateStatus = function (todo, index) {
+    const todoName = todo.parentElement.lastElementChild;
+    if (todo.checked) {
+      todoName.classList.add("checked");
+      todosJson[index].status = "completed";
+    } else {
+      todoName.classList.remove("checked");
+      todosJson[index].status = "pending";
+    }
+    localStorage.setItem("todos", JSON.stringify(todosJson));
+    updateProgressBar();
+  };
+
+  // Fonction pour supprimer une tâche
+  window.remove = function (button) {
+    const index = button.dataset.index;
+    todosJson.splice(index, 1);
+    localStorage.setItem("todos", JSON.stringify(todosJson));
+    showTodos();
+  };
+
+  // Écouteurs pour les filtres
+  filters.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (el.classList.contains('active')) {
+        el.classList.remove('active');
+        filter = '';
+      } else {
+        filters.forEach(tag => tag.classList.remove('active'));
+        el.classList.add('active');
+        filter = e.target.dataset.filter;
+      }
+      showTodos();
+    });
+  });
+
+  // Écouteur pour le bouton Supprimer tout
+  deleteAllButton.addEventListener("click", () => {
+    todosJson = [];
+    localStorage.setItem("todos", JSON.stringify(todosJson));
+    showTodos();
+  });
+
+  // Fonction pour mettre à jour la barre de progression
+  function updateProgressBar() {
+    const totalTodos = todosJson.length;
+    const completedTodos = todosJson.filter(todo => todo.status === "completed").length;
+    const progressPercentage = totalTodos > 0 ? (completedTodos / totalTodos) * 100 : 0;
+
+    const progressBar = document.querySelector(".progress-bar");
+    const progressPercentageText = document.querySelector(".progress-percentage");
+
+    progressBar.style.width =` ${progressPercentage}%`;
+    progressPercentageText.textContent =` ${Math.round(progressPercentage)}%`;
+  }
+});
 
 
 
