@@ -237,6 +237,96 @@ document.getElementById("viewProjectBtn").addEventListener("click", function () 
 });
 
 
+document.getElementById('addUserButton').addEventListener('click', function() {
+  var form = document.getElementById('addUserForm');
+  if (form.style.display === 'none') {
+      form.style.display = 'block';
+  } else {
+      form.style.display = 'none';
+  }
+});
+
+// Pour masquer le formulaire lors du clic sur le bouton "Close"
+document.getElementById('close-add-user-box').addEventListener('click', function() {
+  var form = document.getElementById('addUserForm');
+  form.style.display = 'none';
+})
+
+
+
+/*function toggleMenu() {
+  var menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+}
+
+function showContent(contentId) {
+  // Masquer tous les contenus
+  var contents = document.getElementsByClassName("content");
+  for (var i = 0; i < contents.length; i++) {
+      contents[i].classList.remove("active");
+  }
+
+  // Afficher le contenu sélectionné
+  var selectedContent = document.getElementById(contentId);
+  if (selectedContent) {
+      selectedContent.classList.add("active");
+  }
+
+  // Fermer le menu déroulant
+  var menu = document.getElementById("menu");
+  menu.classList.remove("show");
+}
+
+// Fermer le menu si l'utilisateur clique en dehors
+window.onclick = function(event) {
+  if (!event.target.closest('.profile-menu')) {
+      var menus = document.getElementsByClassName("menu-content");
+      for (var i = 0; i < menus.length; i++) {
+          var openMenu = menus[i];
+          if (openMenu.classList.contains('show')) {
+              openMenu.classList.remove('show');
+          }
+      }
+  }
+}
+*/
+
+
+function toggleMenu() {
+  var menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+}
+
+document.addEventListener("click", function(event) {
+  var menu = document.getElementById("menu");
+  var button = document.querySelector(".profile-button");
+  
+  if (!button.contains(event.target) && !menu.contains(event.target)) {
+      menu.classList.remove("show");
+  }
+});
+
+function showContent(sectionId) {
+  var sections = document.querySelectorAll(".content");
+  
+  sections.forEach(function(section) {
+      section.style.display = "none";
+  });
+  
+  var selectedSection = document.getElementById(sectionId);
+  if (selectedSection) {
+      selectedSection.style.display = "block";
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -278,6 +368,100 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
 
 
+
+
+
+
+
+
+//ouvrir le Box pour ouvrir un nouveau projet
+document.querySelector('.ajouter-projet').addEventListener('click', function ()
+{
+    document.getElementById('box-ajouter-un-projet').style.display='block';
+}
+);
+//sauvegarder le projet
+document.getElementById('save-project').addEventListener('click',function()
+{
+    const   projectName = document.getElementById('project-name').value ;
+    const ProjectDescription = document.getElementById('project-description').value ;
+    const ProjectMembers = document.getElementById('project-members').value ;
+    const ProjectDeadline = document.getElementById('project-deadline').value ;
+
+if(projectName){
+    const newProject=document.createElement('div');
+    newProject.className='projet';
+    newProject.textContent='projectName';
+    newProject.dataset.description='projectDescription';
+    newProject.dataset.members='projectMembers';
+    newProject.dataset.deadline='projectDeadline';
+    
+    //ajouter un boutton de suppresion
+
+    const  deleteButton = document.createElement('button');
+    deleteButton.textContent='Supprimer';
+    deleteButton.className='delete-button';
+    deleteButton.addEventListener('click',function(e)
+    {
+        e.stopPropagation(); //pour empeche l'ouverture du détail du projet
+        newProject.remove();
+    } );
+    newProject.appendChild( deleteButton);
+    //ajouter un projet à la liste
+    document.querySelector('.board-project').appendChild(newProject);
+    //Fermer la Box
+    document.getElementById('box-ajouter-un-projet').style.display='none' ;
+
+    //pour rénitialiser le formulaire 
+
+    document.getElementById('project-name').value = '';
+    document.getElementById('project-description').value = '';
+    document.getElementById('project-members').value = '';
+    document.getElementById('project-deadline').value = '';
+
+} else {
+    alert('Veuillez entrer un nom de projet');
+}
+});
+
+//pour fermer la Box d'ajout de projet
+
+document.getElementById('close-add-box').addEventListener('click', function () {
+document.getElementById('box-ajouter-un-projet').style.display = 'none';
+
+});
+//afficher le détail d'un projet
+document.querySelector('.board-project').addEventListener('click',function(e){
+    if(e.target.classList.contains('projet')) {
+        const project=e.target;
+        
+        document.getElementById('project-details-name').textContent = project.textContent;
+        document.getElementById('project-details-description').textContent = project.dataset.description;
+        document.getElementById('project-details-members').textContent = project.dataset.members;
+        document.getElementById('project-details-deadline').textContent = project.dataset.deadline;
+        document.getElementById('box-details-projet').style.display = 'block';
+
+}
+
+});
+
+//pour fermer la Box des détails
+document.getElementById('close-details').addEventListener('click', function () {
+document.getElementById('box-details-projet').style.display = 'none';
+});
+
+//pour fermer les Boxes si on clique en dehors
+window.onclick = function(event){
+    const boxes=document.querySelectorAll('.box');
+    boxes.forEach(box=> {
+        if(event.target===box){
+                box.style.display='none';
+        }
+
+    }
+
+    );
+  }
 
 
 

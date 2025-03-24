@@ -745,6 +745,11 @@ nav li:hover {
 
 }
 
+.content h3{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 40px;
+}
 
 
 
@@ -793,7 +798,19 @@ nav li:hover {
 }
 
 /* Style des boutons */
-.view-btn {
+.edit-btn {
+
+    padding: 6px 12px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 12px;
+    font-weight: 500;
+}
+.delete-button {
     padding: 6px 12px;
     background: #3498db;
     color: white;
@@ -855,6 +872,7 @@ nav li:hover {
 .search-project-container {
     display: flex;
     align-items: center;
+    margin-top: 40px;
     margin-bottom: 20px;
     /* Espace entre la barre de recherche et le tableau */
     width: 200px;
@@ -922,6 +940,12 @@ nav li:hover {
     margin-right: 40px;
     margin-left: 40px;
 }
+.header2 h3{
+    margin-top: 100px;
+    margin-bottom: 30px;
+    font-size:30px;
+    font-weight: 500;
+}
 
 .header2 button {
     background-color: #242cc8;
@@ -945,7 +969,7 @@ nav li:hover {
     display: flex;
     width: 100%;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     max-width: 700px;
     float: left;
     margin-left: 30px;
@@ -1128,3 +1152,351 @@ nav li:hover {
 
 
 }
+
+
+
+
+
+
+
+
+/*start-salma*/      
+.delete-button{
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+} 
+.box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: 300 px;
+    border-radius: 10px;
+} 
+.box h2{
+    margin-bottom: 30px;
+}
+.box input, .box textarea, .box select  {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+}    
+
+.box label{
+    font-size: 12px;
+}
+
+.box button{
+    padding: 10px 20px;
+    background: #1D83CC;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.box button:hover {
+    background: #1468a0;
+
+}
+/*end-salma*/
+
+
+
+
+
+
+#addUserForm {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; /* Fond blanc pour correspondre au style */
+    padding: 25px;
+    border-radius: 10px; /* Bordures arrondies */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    z-index: 1000;
+    width:600px; /* Largeur ajustée */
+    font-family: 'Arial', sans-serif; /* Typographie moderne */
+}
+
+#addUserForm h2 {
+    margin-bottom: 20px;
+    color: #333333; /* Texte sombre */
+    font-size: 20px;
+    font-weight: 200;
+    text-align: center;
+}
+
+#addUserForm input, #addUserForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9; /* Fond légèrement gris */
+    border: 1px solid #dddddd; /* Bordure légère */
+    border-radius: 5px; /* Bordures arrondies */
+    color: #333333; /* Texte sombre */
+    font-size: 14px;
+    transition: border-color 0.3s ease; /* Transition fluide */
+}
+
+#addUserForm input:focus, #addUserForm select:focus {
+    border-color: #1abc9c; /* Changement de couleur au focus */
+    outline: none;
+}
+
+#addUserForm button {
+    padding: 10px 20px;
+       margin-right: 10px;
+    border: none;
+    border-radius: 5px; /* Bordures arrondies */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight:200;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Effets de transition */
+}
+
+#addUserForm button#save-user {
+    background-color: #c05c5c; 
+    color: white;
+}
+
+#addUserForm button#save-user:hover {
+    background-color: #687a77;
+    transform: scale(1.05); /* Effet de zoom */
+}
+
+#addUserForm button#close-add-user-box {
+    background-color: #c05c5c; 
+    color: white;
+}
+
+#addUserForm button#close-add-user-box:hover {
+    background-color: #687a77; 
+    transform: scale(1.05); /* Effet de zoom */
+}
+
+
+
+/SALMA/
+
+
+
+.profile-menu {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+}
+
+.profile-button {
+    /*background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    */
+    width: 30px;
+    height: 30px;
+    background-color: #e1095f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-button:hover {
+    background-color: #45a049;
+}
+
+.menu-content {
+
+      display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden;*/
+
+    display: none;
+    position: absolute;
+    right: 0; /* Alignement à droite pour éviter le débordement */
+    background-color: #fff;
+    min-width: 150px; /* largeur ajustée pour éviter débordement */
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000; /* élevée pour afficher par-dessus tous les éléments */
+   border-radius: 5px;
+    overflow: hidden;
+    margin
+    
+}
+
+
+
+
+
+
+
+.menu-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.menu-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+.content {
+    display: none;
+    padding: 20px;
+    z-index: 20;
+}
+
+.content.active {
+
+    display: block;
+    position: absolute;
+    top: 50px;
+
+    right: 10px;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    width: 300px;
+
+
+}
+
+.sub-window {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 20px auto;    
+
+    margin-top: 200px
+
+    
+
+   
+
+
+;
+}
+
+.sub-window h2 {
+    margin-top: 0;
+}
+
+.sub-window p {
+    margin: 10px 0;
+}
+
+.sub-window img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.sub-window form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-window form label {
+    margin-bottom: 5px;
+}
+
+.sub-window form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sub-window form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sub-window form button:hover {
+    background-color: #45a049;
+}
+
+.sub-window ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sub-window ul li {
+    margin: 10px 0;
+}
+
+.sub-window ul li a {
+    text-decoration: none;
+    color: #4CAF50;
+    transition: color 0.3s;
+}
+
+.sub-window ul li a:hover {
+    color: #45a049;
+}
+
+.sub-window button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sub-window button:hover {
+    background-color: #45a049;
+}
+/salma/
+
+
+
+
+
+
